@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Online Consultation</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/mobiscroll.javascript.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Add your custom styles here */
+        /* Example: @media queries for responsive design */
+        .bg-rotate {
+            animation: rotate 20s infinite linear;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotateY(0);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-r from-[#FFD6A0] to-[#FFAA6C]">
+    <div class="container mx-auto p-6">
+        <div class="flex flex-col md:flex-row md:flex-wrap justify-around">
+            <div class="flex flex-col m-2 text-white">
+                <img src="i2.jpeg" alt="Background Image" class="w-[300px] h-[300px] rounded-lg bg-cover ">
+                <h1 id="onlineConsultation" class="text-3xl md:text-6xl font-montserrat text-white font-bold m-4">
+                    <span class="hidden">O</span>
+                    <span class="hidden">N</span>
+                    <span class="hidden">L</span>
+                    <span class="hidden">I</span>
+                    <span class="hidden">N</span>
+                    <span class="hidden">E<br/></span>
+                    <span class="hidden">C</span>
+                    <span class="hidden">O</span>
+                    <span class="hidden">N</span>
+                    <span class="hidden">S</span>
+                    <span class="hidden">U</span>
+                    <span class="hidden">L</span>
+                    <span class="hidden">T</span>
+                    <span class="hidden">A</span>
+                    <span class="hidden">T</span>
+                    <span class="hidden">I</span>
+                    <span class="hidden">O</span>
+                    <span class="hidden">N</span>
+                </h1>
+                <p class="text-xl  text-green-600 font-semibold md:text-2xl">If you are unable to come to our Centre but you need medical advice,<br/>
+                    you may set up an Online Consultation with one of our Physicians.<br/>
+                    Online Consultations cover the same aspects.</p>
+            </div>
+            <div class="bg-gradient-to-r from-[#F0F0F0] to-[#D0D0D0] w-full md:w-[400px] h-[550px] 
+            rounded-lg shadow-xl shadow-white hover:shadow-xl hover:shadow-gray-600 m-2">
+            <form onsubmit="submitform()">
+                    <label  class="text-xl text-gray-600 font-semibold flex flex-col m-4">Name
+                        <input  type="text" id="name" class="w-full h-14 text-gray-600 border-gray-800 rounded-lg p-3" required 
+                            placeholder="Enter your name">
+                    </label><br/>
+                    <label  class="text-xl text-gray-600 font-semibold flex flex-col m-4">E-mail
+                        <input id="email" type="email" class="w-full h-14 text-gray-600 border-gray-800 rounded-lg p-3" required placeholder="Enter your email">
+                    </label><br/>
+                    <label class="text-2xl text-gray-600 font-semibold mb-4">Choose
+                        <input id="range" required class="w-full h-14 text-gray-600 border-gray-800 rounded-lg p-3" mbsc-input placeholder="Please select..." />
+                    </label>
+                    <button  class="shadow-xl shadow-white  m-8 text-lg text-white 
+                    rounded-full bg-green-600 w-32 h-10 text-center" onclick="sendEmail()">Submit</button>
+                    </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/mobiscroll.javascript.min.js"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+(function(){
+  emailjs.init("O59Nv2-jk3P3QKiqF");
+})();
+</script>
+    <script>
+        mobiscroll.datepicker('#range', {
+            controls: ['calendar'],
+            display: 'anchored',
+            touchUi: true
+        });
+
+        const letters = document.querySelectorAll('#onlineConsultation span');
+        let delay = 500; // milliseconds
+
+        letters.forEach((letter, index) => {
+            setTimeout(() => {
+                letter.classList.remove('hidden');
+            }, delay * (index + 1));
+        });
+    </script>
+</body>
+</html>
